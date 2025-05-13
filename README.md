@@ -31,7 +31,7 @@ Este projeto consiste na transformação da aplicação de terminal desenvolvida
 ## Estrutura do Projeto
 
 ```
-sistema-conversao-numerica/
+sourcecode/
 │
 ├── app.py                 # Aplicação Flask principal
 ├── functions.py           # Funções de conversão e operações numéricas
