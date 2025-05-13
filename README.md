@@ -90,7 +90,7 @@ Permite realizar operações de:
 
 ## Relatório Técnico
 
-Para maiores detalhes sobre o desenvolvimento do projeto, consulte o [Relatório Técnico fornecido pelo Docente do curso](https://hackmd.io/@UBI/ry9q6FYlR).
+Para maiores detalhes sobre o desenvolvimento do projeto, consulte o [Enunciado do Projeto.pdf](https://github.com/fefogaca/EWMN-Trabalho-Pratico-Final/blob/main/Enunciado%20do%20Projeto.pdf).
 
 ## Licença
 
