@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/fefogaca/EWMN-Trabalho-Pratico-Final/blob/main/Sourcecode/static/images/logo_ubi_branca.png" alt="LogoUBI">
+</p>
+
 # Sistema de Conversão Numérica - UBI
 
 Aplicação web desenvolvida como Trabalho Prático Final da disciplina de Ecossistemas Web, Móvel e na Nuvem da Universidade da Beira Interior (UBI).
