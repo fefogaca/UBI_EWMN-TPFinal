@@ -1,11 +1,102 @@
+<!--
+Arquivo: index.html
+Descrição: Arquivo destinado ao front-end da aplicação.
+Trabalho Final de Ecossistema Web, Móvel e Nuvem
+Alunos:
+- Afonso Esteves - 55047
+- Duarte Azenhas - 55281
+- Felipe Dourado - 53394
+-->
+
 <!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <title>Calculadora Numérica</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Integração do CSS Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Importando o React e o Babel -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <!-- Imagem da UBI de fundo + Cor azulada -->
+  <style>
+    body {
+      background-image: url('./static/images/fundo_ubi.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .overlay {
+      background-color: rgba(30, 41, 59, 0.85);
+    }
+  </style>
 </head>
-<body>
-    <h1>Calculadora para Sistemas Numéricos</h1>
-    <h5>Criada por: Afonso Esteves, Duarte Azenhas e Felipe Dourado</h5>
-    
-    <a href="h"
+
+<body class="min-h-screen flex items-center justify-center text-white">
+  <div class="overlay w-full h-full absolute top-0 left-0 z-0"></div>
+  <div id="root" class="relative z-10"></div>
+
+  <!-- Código React / Integração de Botões interativos + Botão de Autores -->
+  <script type="text/babel">
+    const App = () => {
+      const handleNavigation = (route) => {
+        window.location.href = route;
+      };
+
+      const showAuthors = () => {
+        alert("Trabalho Final de Ecossistemas Web, Móvel e Cloud\n\nDocente: Tiago Simões\n\n- Alunos ⬇️\nAfonso Esteves - 55047\nDuarte Azenhas - 55281\nFelipe Dourado - 55394");
+      };
+
+      return (
+        <div className="text-center px-4">
+          <img
+            src="./static/images/logo_ubi_branca.png"
+            alt="Logo"
+            className="mx-auto mb-4 w-64 h-24"
+          />
+
+          <h1 className="text-4xl font-bold mb-8">Calculadora para Sistemas Numéricos</h1>
+
+          <div className="flex flex-col gap-4 w-full max-w-xs mx-auto">
+            <button
+              onClick={() => handleNavigation("/gray")}
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded shadow"
+            >
+              Tabela de Gray
+            </button>
+            <button
+              onClick={() => handleNavigation("/conversao")}
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded shadow"
+            >
+              Conversões
+            </button>
+            <button
+              onClick={() => handleNavigation("/operacoes")}
+              className="bg-blue-600 hover:bg-blu-700 text-white font-semibold py-2 px-4 rounded shadow"
+            >
+              Operações
+            </button>
+
+            <hr className="border-t border-gray-500 my-2" />
+
+            <button
+              onClick={showAuthors}
+              className="bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded shadow"
+            >
+              Autores
+            </button>
+          </div>
+        </div>
+      );
+    };
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+  </script>
 </body>
 </html>

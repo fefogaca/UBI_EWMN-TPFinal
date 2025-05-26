@@ -1,0 +1,48 @@
+<!--
+Arquivo: gray.html
+Descrição: Arquivo destinado a formulação da Tabela de Código de Gray.
+Trabalho Final de Ecossistema Web, Móvel e Nuvem
+Alunos:
+- Afonso Esteves - 55047
+- Duarte Azenhas - 55281
+- Felipe Dourado - 53394
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tabela de Código de Gray</title>
+</head>
+<body>
+    <h1>Gerar Tabela de Código de Gray</h1>
+    
+    <form method="post">
+        <label for="bits">Número de bits:</label>
+        <input type="number" id="bits" name="bits" min="1" required>
+        <button type="submit">Gerar</button>
+    </form>
+
+    {% if tabela %}
+        <h2>Tabela de Gray com {{ n }} bits</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Decimal</th>
+                    <th>Código Binário</th>
+                    <th>Código Gray</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for decimal, binario, gray in tabela %}
+                    <tr>
+                        <td>{{ decimal }}</td>
+                        <td>{{ binario }}</td>
+                        <td>{{ gray }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</body>
+</html>

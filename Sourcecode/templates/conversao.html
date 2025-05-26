@@ -1,9 +1,50 @@
+<!--
+Arquivo: conversao.html
+Descrição: Arquivo destinado a conversão entre Sistemas Numéricos.
+Trabalho Final de Ecossistema Web, Móvel e Nuvem
+Alunos:
+- Afonso Esteves - 55047
+- Duarte Azenhas - 55281
+- Felipe Dourado - 53394
+-->
+
 <!DOCTYPE html>
+<html lang="pt">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <title>Conversor de Sistemas Numéricos</title>
 </head>
 <body>
-    <h1>Conversão entre Sistemas Numéricos</h1>
-    <a href="h"
+  <h1>Conversor de Sistemas Numéricos</h1>
+
+  <form method="post">
+    <label for="de">De:</label>
+    <select name="de" id="de" required>
+      <option value="binario" {% if de == "binario" %}selected{% endif %}>Binário</option>
+      <option value="hexadecimal" {% if de == "hexadecimal" %}selected{% endif %}>Hexadecimal</option>
+      <option value="decimal" {% if de == "decimal" %}selected{% endif %}>Decimal</option>
+    </select>
+
+    <br/><br/>
+
+    <label for="para">Para:</label>
+    <select name="para" id="para" required>
+      <option value="binario" {% if para == "binario" %}selected{% endif %}>Binário</option>
+      <option value="hexadecimal" {% if para == "hexadecimal" %}selected{% endif %}>Hexadecimal</option>
+      <option value="decimal" {% if para == "decimal" %}selected{% endif %}>Decimal</option>
+    </select>
+
+    <br/><br/>
+
+    <label for="valor">Valor:</label>
+    <input type="text" id="valor" name="valor" value="{{ valor }}" required />
+
+    <br/><br/>
+    <button type="submit">Converter</button>
+  </form>
+
+  {% if resultado is not none %}
+    <h2>Resultado: {{ resultado }}</h2>
+  {% endif %}
 </body>
 </html>

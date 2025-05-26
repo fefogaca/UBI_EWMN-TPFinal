@@ -1,29 +1,65 @@
 <!DOCTYPE html>
+<html lang="pt">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <title>Calculadora de Bases</title>
 </head>
 <body>
-    <h1>Operações Aritméticas</h1>
+  <h2>Calculadora com Diferentes Bases</h2>
+  
+  <form method="post">
+    <div class="input-grupo">
+      <label>Base do primeiro número:</label>
+      <select name="base1" id="base1">
+        <option value="2" {% if base1 == "2" %}selected{% endif %}>Binário</option>
+        <option value="16" {% if base1 == "16" %}selected{% endif %}>Hexadecimal</option>
+      </select>
+    </div>
+    
+    <div class="input-grupo">
+      <label>Base do segundo número:</label>
+      <select name="base2" id="base2">
+        <option value="2" {% if base2 == "2" %}selected{% endif %}>Binário</option>
+        <option value="16" {% if base2 == "16" %}selected{% endif %}>Hexadecimal</option>
+      </select>
+    </div>
+    
+    <div class="input-grupo">
+      <label>Operação:</label>
+      <select name="operacao" id="operacao">
+        <option value="+" {% if operacao == "+" %}selected{% endif %}>Adição</option>
+        <option value="-" {% if operacao == "-" %}selected{% endif %}>Subtração</option>
+      </select>
+    </div>
+    
+    <div class="input-grupo">
+      <label>Insira os valores:</label><br>
+      <input type="text" name="valor1" value="{{ valor1 }}" placeholder="Primeiro valor" required />
+      <span id="operadorVisivel">{{ operacao if operacao else '+' }}</span>
+      <input type="text" name="valor2" value="{{ valor2 }}" placeholder="Segundo valor" required />
+    </div>
+    
+    <button type="submit">Calcular</button>
+  </form>
+  
+  {% if resultado %}
+    <div class="resultado">
+      {% if resultado.erro %}
+        <div class="erro">Erro: {{ resultado.erro }}</div>
+      {% else %}
+        <h3>Resultado:</h3>
+        <p><strong>Binário:</strong> {% if resultado.negativo %}-{% endif %}{{ resultado.binario }}</p>
+        <p><strong>Decimal:</strong> {{ resultado.decimal }}</p>
+        <p><strong>Hexadecimal:</strong> {% if resultado.negativo %}-{% endif %}{{ resultado.hexadecimal }}</p>
+      {% endif %}
+    </div>
+  {% endif %}
 
-    Primeira Base
-    <form>
-        <select name="sistema">
-            <option value="" selected disabled>Selecione</option>
-            <option value="binario">Binário</option>
-            <option value="decimal">Decimal</option>
-            <option value="hexadecimal">Hexadecimal</option>
-        </select>
-    </form><br>
-
-    Segunda Base
-    <form>
-        <select name="sistema">
-            <option value="" selected disabled>Selecione</option>
-            <option value="binario">Binário</option>
-            <option value="decimal">Decimal</option>
-            <option value="hexadecimal">Hexadecimal</option>
-        </select>
-    </form>
-    <a href="h"
+  <script>
+    // Atualizar operador visível quando mudar a seleção
+    document.getElementById('operacao').addEventListener('change', function() {
+      document.getElementById('operadorVisivel').textContent = this.value;
+    });
+  </script>
 </body>
 </html>
