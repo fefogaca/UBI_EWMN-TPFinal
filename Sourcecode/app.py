@@ -139,34 +139,36 @@ def conversao():
 @app.route("/operacoes", methods=["GET", "POST"])
 def operacoes():
     resultado = None
-    base1 = base2 = operacao = valor1 = valor2 = ""
+    sistema = operacao = valor1 = valor2 = ""
     
     if request.method == "POST":
-        base1 = request.form.get("base1")
-        base2 = request.form.get("base2")
+        sistema = request.form.get("sistema")
         operacao = request.form.get("operacao")
         valor1 = request.form.get("valor1", "").strip().upper()
         valor2 = request.form.get("valor2", "").strip().upper()
         
         try:
-            # Converter valores para decimal primeiro
-            if base1 == "2":  # Binário
-                if not all(c in '01' for c in valor1):
-                    raise ValueError("Valor binário inválido")
+            # Validar se o sistema foi selecionado
+            if not sistema:
+                raise ValueError("Por favor, selecione um sistema numérico")
+            
+            # Converter valores para decimal baseado no sistema selecionado
+            if sistema == "Binario":
+                # Validar se são valores binários válidos
+                if not all(c in '01' for c in valor1) or not all(c in '01' for c in valor2):
+                    raise ValueError("Valores binários inválidos. Use apenas 0 e 1")
                 decimal1 = int(valor1, 2)
-            elif base1 == "16":  # Hexadecimal
-                decimal1 = int(valor1, 16)
-            else:
-                raise ValueError("Base não suportada")
-                
-            if base2 == "2":  # Binário
-                if not all(c in '01' for c in valor2):
-                    raise ValueError("Valor binário inválido")
                 decimal2 = int(valor2, 2)
-            elif base2 == "16":  # Hexadecimal
-                decimal2 = int(valor2, 16)
+                
+            elif sistema == "Hexadecimal":
+                # Validar e converter hexadecimal
+                try:
+                    decimal1 = int(valor1, 16)
+                    decimal2 = int(valor2, 16)
+                except ValueError:
+                    raise ValueError("Valores hexadecimais inválidos")
             else:
-                raise ValueError("Base não suportada")
+                raise ValueError("Sistema numérico não suportado")
             
             # Realizar operação
             if operacao == "+":
@@ -176,32 +178,25 @@ def operacoes():
             else:
                 raise ValueError("Operação não suportada")
             
-            # Converter resultado para todas as bases
-            resultado = {
-                'binario': bin(abs(resultado_decimal))[2:],
-                'decimal': resultado_decimal,
-                'hexadecimal': hex(abs(resultado_decimal))[2:].upper(),
-                'negativo': resultado_decimal < 0
-            }
+            # Converter resultado apenas para o sistema selecionado
+            if sistema == "Binario":
+                resultado = {
+                    'valor': bin(abs(resultado_decimal))[2:],
+                    'sistema': 'Binário',
+                    'negativo': resultado_decimal < 0
+                }
+            elif sistema == "Hexadecimal":
+                resultado = {
+                    'valor': hex(abs(resultado_decimal))[2:].upper(),
+                    'sistema': 'Hexadecimal',
+                    'negativo': resultado_decimal < 0
+                }
             
         except ValueError as e:
             resultado = {'erro': str(e)}
         except Exception:
             resultado = {'erro': 'Erro na operação. Verifique os valores inseridos.'}
     
-    return render_template("operacoes.html", resultado=resultado, base1=base1, base2=base2, operacao=operacao, valor1=valor1, valor2=valor2)
-
-# Suas funções auxiliares (certifique-se de que existem)
-def binario_decimal(binario):
-    return int(binario, 2)
-
-def decimal_binario(decimal):
-    return bin(decimal)[2:]
-
-def hexadecimal_decimal(hexa):
-    return int(hexa, 16)
-
-def decimal_para_hexadecimal(decimal):
-    return hex(decimal)[2:].upper()
+    return render_template("operacoes.html", resultado=resultado, sistema=sistema, operacao=operacao, valor1=valor1, valor2=valor2)     
 
 #! -----------------------------------------------------------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 <!--
 Arquivo: conversao.html
-Descrição: Arquivo destinado a conversão entre Sistemas Numéricos.
+Descrição: Conversor entre Sistemas Numéricos
 Trabalho Final de Ecossistema Web, Móvel e Nuvem
 Alunos:
 - Afonso Esteves - 55047
@@ -9,42 +9,135 @@ Alunos:
 -->
 
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Conversor de Sistemas Numéricos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- React + Babel -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <style>
+    body {
+      background-image: url('./static/images/fundo_ubi.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .overlay {
+      background-color: rgba(30, 41, 59, 0.85);
+    }
+  </style>
 </head>
-<body>
-  <h1>Conversor de Sistemas Numéricos</h1>
 
-  <form method="post">
-    <label for="de">De:</label>
-    <select name="de" id="de" required>
-      <option value="binario" {% if de == "binario" %}selected{% endif %}>Binário</option>
-      <option value="hexadecimal" {% if de == "hexadecimal" %}selected{% endif %}>Hexadecimal</option>
-      <option value="decimal" {% if de == "decimal" %}selected{% endif %}>Decimal</option>
-    </select>
+<body class="min-h-screen flex items-center justify-center text-white">
+  <div class="overlay w-full h-full absolute top-0 left-0 z-0"></div>
+  <div id="root" class="relative z-10 w-full px-4"></div>
 
-    <br/><br/>
+  <script type="text/babel">
+    const App = () => {
+      const [de, setDe] = React.useState("{{ de }}");
+      const [para, setPara] = React.useState("{{ para }}");
+      const [valor, setValor] = React.useState("{{ valor }}");
 
-    <label for="para">Para:</label>
-    <select name="para" id="para" required>
-      <option value="binario" {% if para == "binario" %}selected{% endif %}>Binário</option>
-      <option value="hexadecimal" {% if para == "hexadecimal" %}selected{% endif %}>Hexadecimal</option>
-      <option value="decimal" {% if para == "decimal" %}selected{% endif %}>Decimal</option>
-    </select>
+      return (
+        <div className="max-w-md mx-auto text-center">
+          
+          {/* Container para Logo e Seta */}
+          <div className="relative mb-6">
+            {/* Botão Voltar posicionado à esquerda da logo */}
+            <button
+              type="button"
+              onClick={() => window.location.href = "/"}
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 text-white hover:text-blue-300 text-3xl"
+              title="Voltar"
+            >
+              ←
+            </button>
+            
+            {/* Logo centralizada */}
+            <img
+              src="./static/images/logo_ubi_branca.png"
+              alt="Logo UBI"
+              className="mx-auto w-64 h-24"
+            />
+          </div>
 
-    <br/><br/>
+          <h1 className="text-3xl font-bold mb-6">Conversor de Sistemas Numéricos</h1>
 
-    <label for="valor">Valor:</label>
-    <input type="text" id="valor" name="valor" value="{{ valor }}" required />
+          <form method="POST" className="flex flex-col gap-4">
+            <div className="text-left">
+              <label htmlFor="de" className="block mb-1 font-semibold">De:</label>
+              <select
+                id="de"
+                name="de"
+                value={de}
+                onChange={(e) => setDe(e.target.value)}
+                className="text-black w-full rounded p-2"
+                required
+              >
+                <option value="binario">Binário</option>
+                <option value="decimal">Decimal</option>
+                <option value="hexadecimal">Hexadecimal</option>
+              </select>
+            </div>
 
-    <br/><br/>
-    <button type="submit">Converter</button>
-  </form>
+            <div className="text-left">
+              <label htmlFor="para" className="block mb-1 font-semibold">Para:</label>
+              <select
+                id="para"
+                name="para"
+                value={para}
+                onChange={(e) => setPara(e.target.value)}
+                className="text-black w-full rounded p-2"
+                required
+              >
+                <option value="binario" disabled={de === "binario"}>Binário</option>
+                <option value="decimal" disabled={de === "decimal"}>Decimal</option>
+                <option value="hexadecimal" disabled={de === "hexadecimal"}>Hexadecimal</option>
+              </select>
+            </div>
 
-  {% if resultado is not none %}
-    <h2>Resultado: {{ resultado }}</h2>
-  {% endif %}
+            <div className="text-left">
+              <label htmlFor="valor" className="block mb-1 font-semibold">Valor:</label>
+              <input
+                type="text"
+                id="valor"
+                name="valor"
+                value={valor}
+                onChange={(e) => setValor(e.target.value)}
+                className="text-black w-full rounded p-2"
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded shadow transition-colors"
+            >
+              Converter
+            </button>
+          </form>
+
+          {`{{ resultado }}` && (
+            <div className="mt-6 p-4 bg-gray-800 bg-opacity-50 rounded-lg">
+              <div className="text-xl font-medium">
+                Resultado: <span className="text-green-400">{{ resultado }}</span>
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    };
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+  </script>
 </body>
 </html>

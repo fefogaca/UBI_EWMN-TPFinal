@@ -3,54 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <title>Calculadora de Bases</title>
+
 </head>
 <body>
-  <h2>Calculadora com Diferentes Bases</h2>
-  
+  <h1>Calculadora com Diferentes Bases</h1>
+ 
   <form method="post">
     <div class="input-grupo">
-      <label>Base do primeiro número:</label>
-      <select name="base1" id="base1">
-        <option value="2" {% if base1 == "2" %}selected{% endif %}>Binário</option>
-        <option value="16" {% if base1 == "16" %}selected{% endif %}>Hexadecimal</option>
-      </select>
+      <p><strong>Selecione o sistema numérico que pretende calcular:</strong></p>
+      <input type="radio" id="binario" name="sistema" value="Binario" {% if sistema == "Binario" %}checked{% endif %} required>
+      <label for="binario">Binário</label><br>
+      <input type="radio" id="hexadecimal" name="sistema" value="Hexadecimal" {% if sistema == "Hexadecimal" %}checked{% endif %}>
+      <label for="hexadecimal">Hexadecimal</label>
     </div>
-    
+   
     <div class="input-grupo">
-      <label>Base do segundo número:</label>
-      <select name="base2" id="base2">
-        <option value="2" {% if base2 == "2" %}selected{% endif %}>Binário</option>
-        <option value="16" {% if base2 == "16" %}selected{% endif %}>Hexadecimal</option>
-      </select>
-    </div>
-    
-    <div class="input-grupo">
-      <label>Operação:</label>
+      <label><strong>Operação:</strong></label>
       <select name="operacao" id="operacao">
         <option value="+" {% if operacao == "+" %}selected{% endif %}>Adição</option>
         <option value="-" {% if operacao == "-" %}selected{% endif %}>Subtração</option>
       </select>
     </div>
-    
+   
     <div class="input-grupo">
-      <label>Insira os valores:</label><br>
+      <label><strong>Insira os valores:</strong></label><br><br>
       <input type="text" name="valor1" value="{{ valor1 }}" placeholder="Primeiro valor" required />
       <span id="operadorVisivel">{{ operacao if operacao else '+' }}</span>
       <input type="text" name="valor2" value="{{ valor2 }}" placeholder="Segundo valor" required />
     </div>
-    
-    <button type="submit">Calcular</button>
+   
+    <button type="submit" style="padding: 10px 20px; font-size: 16px;">Calcular</button>
   </form>
-  
+ 
   {% if resultado %}
     <div class="resultado">
       {% if resultado.erro %}
         <div class="erro">Erro: {{ resultado.erro }}</div>
       {% else %}
-        <h3>Resultado:</h3>
-        <p><strong>Binário:</strong> {% if resultado.negativo %}-{% endif %}{{ resultado.binario }}</p>
-        <p><strong>Decimal:</strong> {{ resultado.decimal }}</p>
-        <p><strong>Hexadecimal:</strong> {% if resultado.negativo %}-{% endif %}{{ resultado.hexadecimal }}</p>
+        <h3>Resultado em {{ resultado.sistema }}:</h3>
+        <p><strong>{% if resultado.negativo %}-{% endif %}{{ resultado.valor }}</strong></p>
       {% endif %}
     </div>
   {% endif %}
