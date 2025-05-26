@@ -78,6 +78,8 @@ Alunos:
                 name="bits"
                 value={bits}
                 onChange={(e) => setBits(e.target.value)}
+                onInvalid={(e) => e.target.setCustomValidity('Por favor, insira um valor entre 1 e 10')}
+                onInput={(e) => e.target.setCustomValidity('')}
                 className="text-black w-full rounded p-2"
                 min="1"
                 max="10"
