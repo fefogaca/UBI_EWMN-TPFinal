@@ -102,6 +102,7 @@ Permite realizar operações de:
 ### Landing Page
 <div align="center">
   <img src="https://github.com/fefogaca/EWMN-Trabalho-Pratico-Final/blob/main/Screenshots/Landing-Page.png" alt="Landing-Page.png" width="800">
+  <em>Landing Page</em>
 </div>
 
 ### Página Tabela Gray
