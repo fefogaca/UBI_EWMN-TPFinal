@@ -104,14 +104,20 @@ Permite realizar operações de:
   <em>Landing Page</em>
 </div>
 
+<div align="center">
 <img src="https://github.com/fefogaca/EWMN-Trabalho-Pratico-Final/blob/main/Screenshots/Pagina-TabelaGray.png" alt="Pagina-TabelaGray.png" width="800">
 <em>Página Tabela de Gray</em>
+</div>
 
+<div align="center">
 <img src="https://github.com/fefogaca/EWMN-Trabalho-Pratico-Final/blob/main/Screenshots/Pagina-Operacoes.png" alt="Pagina-Operacoes.png" width="800">
 <em>Página Operações Aritmeticas</em>
+</div>
 
+<div align="center">
 <img src="https://github.com/fefogaca/EWMN-Trabalho-Pratico-Final/blob/main/Screenshots/Pagina-Conversor.png" alt="Pagina-Conversor.png" width="800">
 <em>Página Conversor</em>
+</div>
 
 ## Relatório Técnico
 
