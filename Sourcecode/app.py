@@ -39,10 +39,11 @@ def gray():
     return render_template("gray.html", tabela=tabela, n=n)
 
 
-#* Função para gerar a tabela de gray para n bits
+#* Função para gerar código binário
 def codigo_binario(n):
     return [format(i, f"0{n}b") for i in range(2**n)]
 
+#* Função para gerar tabela com código de binário, código gray e decimal
 def gerar_tabela_gray(n):
     if n <= 0:
         return []
@@ -56,6 +57,7 @@ def gerar_tabela_gray(n):
     
     return tabela
 
+#* Função para gerar array de número de gray
 def codigo_gray(n):
     if n <= 0:
         return []
@@ -81,7 +83,7 @@ def codigo_gray(n):
 
 #* Função para converter entre bases numéricas
 def conversao():
-    resultado = None
+    resultado = ""
     de = para = valor = ""
     
     if request.method == "POST":
@@ -89,7 +91,7 @@ def conversao():
         para = request.form.get("para")
         valor = request.form.get("valor", "").strip()
         
-        #! Validar a entrada
+        #* Validação de dados
         if not valor:
             resultado = "Por favor, insira um valor."
             return render_template("conversao.html", resultado=resultado, de=de, para=para, valor=valor)
@@ -140,7 +142,7 @@ def conversao():
 
 #* Função para operações entre números
 def operacoes():
-    resultado = None
+    resultado = ""
     sistema = operacao = valor1 = valor2 = ""
     
     if request.method == "POST":

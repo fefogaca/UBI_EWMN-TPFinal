@@ -14,16 +14,11 @@ Alunos:
   <meta charset="UTF-8" />
   <title>Calculadora Numérica</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <!-- Integração do CSS Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Importando o React e o Babel -->
   <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
   <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
-  <!-- Imagem da UBI de fundo + Cor azulada -->
   <style>
     body {
       background-image: url('./static/images/fundo_ubi.png');
@@ -41,7 +36,6 @@ Alunos:
   <div class="overlay w-full h-full absolute top-0 left-0 z-0"></div>
   <div id="root" class="relative z-10"></div>
 
-  <!-- Código React / Integração de Botões interativos + Botão de Autores -->
   <script type="text/babel">
     const App = () => {
       const handleNavigation = (route) => {
@@ -54,42 +48,17 @@ Alunos:
 
       return (
         <div className="text-center px-4">
-          <img
-            src="./static/images/logo_ubi_branca.png"
-            alt="Logo"
-            className="mx-auto mb-4 w-64 h-24"
-          />
+          <img src="./static/images/logo_ubi_branca.png" alt="Logo" className="mx-auto mb-4 w-64 h-24"/>
 
           <h1 className="text-4xl font-bold mb-8">Calculadora para Sistemas Numéricos</h1>
 
           <div className="flex flex-col gap-4 w-full max-w-xs mx-auto">
-            <button
-              onClick={() => handleNavigation("/gray")}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded shadow"
-            >
-              Tabela de Gray
-            </button>
-            <button
-              onClick={() => handleNavigation("/conversao")}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded shadow"
-            >
-              Conversões
-            </button>
-            <button
-              onClick={() => handleNavigation("/operacoes")}
-              className="bg-blue-600 hover:bg-blu-700 text-white font-semibold py-2 px-4 rounded shadow"
-            >
-              Operações
-            </button>
+            <button onClick={() => handleNavigation("/gray")} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded shadow">Tabela de Gray</button>
+            <button onClick={() => handleNavigation("/conversao")} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded shadow">Conversões</button>
+            <button onClick={() => handleNavigation("/operacoes")} className="bg-blue-600 hover:bg-blu-700 text-white font-semibold py-2 px-4 rounded shadow">Operações</button>
 
-            <hr className="border-t border-gray-500 my-2" />
-
-            <button
-              onClick={showAuthors}
-              className="bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded shadow"
-            >
-              Autores
-            </button>
+            <hr className="border-t border-gray-500 my-2"/>
+            <button onClick={showAuthors} className="bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded shadow">Autores</button>
           </div>
         </div>
       );

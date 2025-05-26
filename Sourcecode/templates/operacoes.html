@@ -14,15 +14,10 @@ Alunos:
   <meta charset="UTF-8" />
   <title>Calculadora de Bases</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- React + Babel -->
   <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
   <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-
   <style>
     body {
       background-image: url('./static/images/fundo_ubi.png');
@@ -51,105 +46,50 @@ Alunos:
 
       return (
         <div className="max-w-md mx-auto text-center">
-          {/* Header com botão e logo */}
           <div className="relative mb-6">
-            <button
-              type="button"
-              onClick={() => window.location.href = "/"}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 text-white hover:text-blue-300 text-3xl"
-              title="Voltar"
-            >
-              ←
-            </button>
-            <img
-              src="./static/images/logo_ubi_branca.png"
-              alt="Logo UBI"
-              className="mx-auto w-64 h-24"
-            />
+            <button type="button" onClick={() => window.location.href = "/"} className="absolute left-0 top-1/2 transform -translate-y-1/2 text-white hover:text-blue-300 text-3xl" title="Voltar"> ← </button>
+            <img src="./static/images/logo_ubi_branca.png" alt="Logo UBI" className="mx-auto w-64 h-24"/>
           </div>
 
           <h1 className="text-3xl font-bold mb-6">Operações com Diferentes Bases</h1>
 
           <form method="POST" className="flex flex-col gap-4 text-left">
-            {/* Seleção do sistema numérico */}
             <div>
               <p className="font-semibold mb-2">Selecione o sistema numérico:</p>
               <div className="flex gap-4">
                 <label>
-                  <input
-                    type="radio"
-                    name="sistema"
-                    value="Binario"
-                    checked={sistema === "Binario"}
-                    onChange={() => setSistema("Binario")}
-                    required
-                  />
+                  <input type="radio" name="sistema" value="Binario" checked={sistema === "Binario"} onChange={() => setSistema("Binario")} required/>
                   <span className="ml-2">Binário</span>
                 </label>
                 <label>
-                  <input
-                    type="radio"
-                    name="sistema"
-                    value="Hexadecimal"
-                    checked={sistema === "Hexadecimal"}
-                    onChange={() => setSistema("Hexadecimal")}
-                  />
+                  <input type="radio" name="sistema" value="Hexadecimal" checked={sistema === "Hexadecimal"} onChange={() => setSistema("Hexadecimal")}/>
                   <span className="ml-2">Hexadecimal</span>
                 </label>
               </div>
             </div>
 
-            {/* Operação */}
             <div>
               <label htmlFor="operacao" className="block font-semibold mb-1">Operação:</label>
-              <select
-                id="operacao"
-                name="operacao"
-                value={operacao}
-                onChange={(e) => setOperacao(e.target.value)}
-                className="text-black w-full rounded p-2"
-              >
+              <select id="operacao" name="operacao" value={operacao} onChange={(e) => setOperacao(e.target.value)} className="text-black w-full rounded p-2" >
                 <option value="+">Adição</option>
                 <option value="-">Subtração</option>
               </select>
             </div>
 
-            {/* Valores */}
             <div>
               <label className="block font-semibold mb-1">Insira os valores:</label>
               <div className="flex items-center gap-2">
-                <input
-                  type="text"
-                  name="valor1"
-                  value={valor1}
-                  onChange={(e) => setValor1(e.target.value)}
-                  placeholder="Primeiro valor"
-                  className="text-black w-full rounded p-2"
-                  required
-                />
+                <input type="text" name="valor1" value={valor1} onChange={(e) => setValor1(e.target.value)} placeholder="Primeiro valor" className="text-black w-full rounded p-2" required />
                 <span className="text-xl font-bold">{operadorVisivel}</span>
-                <input
-                  type="text"
-                  name="valor2"
-                  value={valor2}
-                  onChange={(e) => setValor2(e.target.value)}
-                  placeholder="Segundo valor"
-                  className="text-black w-full rounded p-2"
-                  required
-                />
+                <input type="text" name="valor2" value={valor2} onChange={(e) => setValor2(e.target.value)} placeholder="Segundo valor" className="text-black w-full rounded p-2" required />
               </div>
             </div>
 
-            <button
-              type="submit"
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded shadow transition-colors"
-            >
-              Calcular
-            </button>
+            <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded shadow transition-colors"> Calcular </button>
           </form>
 
-          {/* Resultado */}
           {`{{ resultado }}` && (
+            
             <div className="mt-6 p-4 bg-gray-800 bg-opacity-50 rounded-lg">
               {% if resultado.erro %}
                 <div className="text-red-400 font-medium">Erro: {{ resultado.erro }}</div>
@@ -162,6 +102,7 @@ Alunos:
                 </div>
               {% endif %}
             </div>
+
           )}
         </div>
       );
