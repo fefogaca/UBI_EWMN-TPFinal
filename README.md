@@ -119,7 +119,7 @@ Para mais detalhes técnicos do projeto, consulte o [Relatório Técnico](https:
 
 ## Enunciado do Projeto
 
-Para maiores detalhes sobre o desenvolvimento do projeto, consulte o [Enunciado do Projeto.pdf](https://github.com/fefogaca/EWMN-Trabalho-Pratico-Final/blob/main/Enunciado%20do%20Projeto.pdf).
+Para maiores detalhes sobre o desenvolvimento do projeto, consulte o [Enunciado do Projeto](https://github.com/fefogaca/EWMN-Trabalho-Pratico-Final/blob/main/Enunciado%20do%20Projeto.pdf).
 
 ## Licença
 
