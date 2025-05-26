@@ -116,7 +116,7 @@ Permite realizar operações de:
 
 <div align="center">
 <img src="https://github.com/fefogaca/EWMN-Trabalho-Pratico-Final/blob/main/Screenshots/Pagina-Conversor.png" alt="Pagina-Conversor.png" width="800">
-<em>Página Conversor</em>
+<em>Página Conversor de Sistemas Numéricos</em>
 </div>
 
 ## Relatório Técnico
