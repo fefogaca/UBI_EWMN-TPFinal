@@ -99,20 +99,19 @@ Permite realizar operações de:
 
 ## Screenshots
 
-### Landing Page
 <div align="center">
   <img src="https://github.com/fefogaca/EWMN-Trabalho-Pratico-Final/blob/main/Screenshots/Landing-Page.png" alt="Landing-Page.png" width="800">
   <em>Landing Page</em>
 </div>
 
-### Página Tabela Gray
 <img src="https://github.com/fefogaca/EWMN-Trabalho-Pratico-Final/blob/main/Screenshots/Pagina-TabelaGray.png" alt="Pagina-TabelaGray.png" width="800">
+<em>Página Tabela de Gray</em>
 
-### Página Operações Aritmeticas
 <img src="https://github.com/fefogaca/EWMN-Trabalho-Pratico-Final/blob/main/Screenshots/Pagina-Operacoes.png" alt="Pagina-Operacoes.png" width="800">
+<em>Página Operações Aritmeticas</em>
 
-### Página Conversor
 <img src="https://github.com/fefogaca/EWMN-Trabalho-Pratico-Final/blob/main/Screenshots/Pagina-Conversor.png" alt="Pagina-Conversor.png" width="800">
+<em>Página Conversor</em>
 
 ## Relatório Técnico
 
