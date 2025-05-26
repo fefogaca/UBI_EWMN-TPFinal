@@ -123,4 +123,4 @@ Para maiores detalhes sobre o desenvolvimento do projeto, consulte o [Enunciado 
 
 ## Licença
 
-Todos os direitos reservados à Universidade da Beira Interior (UBI) e aos autores do projeto.
+Todos os direitos reservados à [Universidade da Beira Interior](https://ubi.pt) e aos autores do projeto.
