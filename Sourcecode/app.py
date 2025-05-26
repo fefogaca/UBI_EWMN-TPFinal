@@ -135,8 +135,10 @@ def conversao():
     return render_template("conversao.html", resultado=resultado, de=de, para=para, valor=valor)
 
 #! -----------------------------------------------------------------------------------------------------------------------------
-
+#* Rota para Operações Aritméticas
 @app.route("/operacoes", methods=["GET", "POST"])
+
+#* Função para operações entre números
 def operacoes():
     resultado = None
     sistema = operacao = valor1 = valor2 = ""
