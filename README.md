@@ -1,8 +1,8 @@
-<p align="center">
-  <img src="https://github.com/fefogaca/EWMN-Trabalho-Pratico-Final/blob/main/Sourcecode/static/images/logo_ubi_branca.png" alt="LogoUBI">
-</p>
+<div align="center">
+  <img src="https://github.com/fefogaca/EWMN-Trabalho-Pratico-Final/blob/main/Sourcecode/static/images/logo_ubi_branca.png" alt="Logo UBI" width="300">
+</div>
 
-# Sistema de Conversão Numérica - UBI
+# EWMN Trabalho Prático Final
 
 Aplicação web desenvolvida como Trabalho Prático Final da disciplina de Ecossistemas Web, Móvel e na Nuvem da Universidade da Beira Interior (UBI).
 
@@ -37,35 +37,44 @@ Este projeto consiste na transformação da aplicação de terminal desenvolvida
 ```
 sourcecode/
 │
-├── app.py                 # Aplicação Flask principal
-├── functions.py           # Funções de conversão e operações numéricas
+├── app.py                        # Aplicação Flask principal
 │
-├── arquivos/             # Arquivos HTML
-│   ├── base.html          # Template base com layout comum
-│   ├── index.html         # Página inicial
-│   ├── tabela_gray.html   # Página de geração de tabelas Gray
-│   ├── conversao.html     # Página de conversão entre sistemas
-│   └── operacoes.html     # Página de operações aritméticas
+├── templates/                    # Arquivos HTML
+│   ├── index.html                # Página inicial
+│   ├── gray.html                 # Página de geração de tabelas Gray
+│   ├── conversao.html            # Página de conversão entre sistemas
+│   └── operacoes.html            # Página de operações aritméticas
 │
-└── static/                # Arquivos estáticos
-    ├── css/
-    │   └── styles.css     # Folha de estilos CSS
+└── static/                       # Arquivos estáticos
     └── images/
-        └── ubi-logo.png   # Logo da UBI
+        ├── logo_ubi_branca.png   # Logo da UBI
+        └── fundo_ubi.png         # Fundo Imagem UBI
 ```
 
 ## Como Executar
 
-1. Certifique-se de ter Python 3.6+ instalado
-2. Instale as dependências:
-   ```
-   pip install flask
-   ```
-3. Execute a aplicação:
-   ```
-   python app.py
-   ```
-4. Acesse a aplicação no navegador em `http://localhost:5000`
+1. Certifique-se de ter Python 3.6+ instalado na sua maquina.
+2. Crie um ambiente virtual Python desta forma:
+    ```
+    python -m venv .venv
+    ```
+3. Instale as dependências:
+    ```
+    pip3 install flask
+    ```
+4. Defina as variáveis de ambientes para o Flask:
+    ```
+    export FLASK_APP=app
+    ```
+    ```
+    export FLASK_ENV=development
+    ```
+5. Execute a aplicação:
+    ```
+    flask run
+    ```
+6. Acesse a aplicação no navegador em `http://localhost:5000`
+    
 
 ## Funcionalidades em Detalhes
 
@@ -90,9 +99,25 @@ Permite realizar operações de:
 
 ## Screenshots
 
-(Adicionar screenshots da aplicação após implementação)
+### Landing Page
+<div align="center">
+  <img src="https://github.com/fefogaca/EWMN-Trabalho-Pratico-Final/blob/main/Screenshots/Landing-Page.png" alt="Landing-Page.png" width="800">
+</div>
+
+### Página Tabela Gray
+<img src="https://github.com/fefogaca/EWMN-Trabalho-Pratico-Final/blob/main/Screenshots/Pagina-TabelaGray.png" alt="Pagina-TabelaGray.png" width="800">
+
+### Página Operações Aritmeticas
+<img src="https://github.com/fefogaca/EWMN-Trabalho-Pratico-Final/blob/main/Screenshots/Pagina-Operacoes.png" alt="Pagina-Operacoes.png" width="800">
+
+### Página Conversor
+<img src="https://github.com/fefogaca/EWMN-Trabalho-Pratico-Final/blob/main/Screenshots/Pagina-Conversor.png" alt="Pagina-Conversor.png" width="800">
 
 ## Relatório Técnico
+
+Para mais detalhes técnicos do projeto, consulte o [Relatório Técnico](https://github.com/fefogaca/EWMN-Trabalho-Pratico-Final/blob/main/Relatorio/relatorio.pdf).
+
+## Enunciado do Projeto
 
 Para maiores detalhes sobre o desenvolvimento do projeto, consulte o [Enunciado do Projeto.pdf](https://github.com/fefogaca/EWMN-Trabalho-Pratico-Final/blob/main/Enunciado%20do%20Projeto.pdf).
 
